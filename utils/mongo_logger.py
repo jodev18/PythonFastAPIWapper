@@ -27,9 +27,14 @@ class MongoLogger:
         :param log_msg:
         :return:
         """
-        log_message = f"[{module_name}][{self.get_timestamp_str()}]: {log_msg}"
-        print(log_message)
-        self.log_file.write(log_message)
+        if len(module_name) > 0:
+            log_message = f"[{module_name}][{self.get_timestamp_str()}]: {log_msg}"
+            print(log_message)
+            self.log_file.write(log_message)
+        else:
+            log_message = f"[{module_name}][{self.get_timestamp_str()}]: {log_msg}"
+            print(log_message)
+            self.log_file.write(log_message)
 
     def close_file(self):
 
